@@ -82,6 +82,24 @@ public class LedgerApp {
 
     }
     public static void exit(){
+        System.out.println("Goodbye!");
+    }
+
+
+    // ledger menu methods
+    public static void displayAllEntries(){
+        System.out.println("Display All Entries selected!");
+    }
+    public static void displayOnlyDeposits(){
+        System.out.println("Display Only Deposits selected!");
+
+    }
+    public static void displayOnlyPayments(){
+        System.out.println("Display only deposits selected!");
+    }
+    public static void reports(){
+
+        System.out.println("Reports selected!");
 
     }
 
