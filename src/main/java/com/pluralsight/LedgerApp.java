@@ -101,7 +101,43 @@ public class LedgerApp {
 
         System.out.println("Reports selected!");
 
+        Scanner usersInputReports = new Scanner(System.in);
+        System.out.println("Reports selected!");
+
+        // Reports menu
+        System.out.println("1) Month To Date");
+        System.out.println("2) Previous Month");
+        System.out.println("3) Year To Date");
+        System.out.println("4) Previous Year");
+        System.out.println("5) Search by Vendor");
+        System.out.println("0) Back <- ");
+        int inputReportsScreen = usersInputReports.nextInt();
+        usersInputReports.nextLine(); // this code is to clean the enter floating in the memory.
+
+        // Switch case that will deliver the user's input from the report menu.
+
+        switch (inputReportsScreen){
+            case 1:
+                System.out.println("Month to date selected");
+                break;
+            case 2:
+                System.out.println("Previous month selected");
+                break;
+            case 3:
+                System.out.println("Year to date selected");
+                break;
+            case 4:
+                System.out.println("Previous year selected!");
+                break;
+            case 5:
+                System.out.println("Search by vendor selected!");
+            case 0:
+        }
+
     }
+
+    //reports menu
+
 
 
 }
