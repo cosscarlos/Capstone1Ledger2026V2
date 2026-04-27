@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class LedgerApp {
     public static void main(String[] args) {
-    // creating variables and scanner.
+        // creating variables and scanner.
 
         Scanner usersInput = new Scanner(System.in);
         boolean appRunning = true;
 
-        while(appRunning){
+        while (appRunning) {
 
             // This is the home screen:
             System.out.println();
@@ -20,7 +20,7 @@ public class LedgerApp {
             String inputHomeScreen = usersInput.nextLine().toUpperCase();
 
             // Switch case that will deliver the user's input from the main menu to the methods.
-            switch (inputHomeScreen){
+            switch (inputHomeScreen) {
                 case "D":
                     addDeposit();
                     break;
@@ -34,7 +34,26 @@ public class LedgerApp {
                     exit();
                     appRunning = false;
                     break;
+            }
         }
+    }
+
+    // main menu methods
+    public static void addDeposit(){
 
     }
+    public static void makePayment(){
+
+    }
+    public static void ledger(){
+
+    }
+    public static void appRunning(){
+
+    }
+    public static void exit(){
+
+    }
+
+
 }
