@@ -79,6 +79,35 @@ public class LedgerApp {
     }
     public static void makePayment(){
         System.out.println("Make payment selected!");
+
+
+
+        //Creating the date and time in real time and formatted.
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String dateFormatted = now.format(formatter);
+
+        // Creating Scanner
+        Scanner Input = new Scanner(System.in);
+        System.out.println("Add payment selected!");
+        System.out.println();
+
+        // asking for users input for deposit.
+        System.out.println("Add the following payment information:");
+        System.out.println();
+        System.out.println("Payment description: ");
+        String description = Input.nextLine();
+        System.out.println();
+        System.out.println("Provider: ");
+        String provider = Input.nextLine();
+        System.out.println();
+        System.out.println("Payment amount: ");
+        double amount = -Math.abs(Input.nextDouble());  // With Math.abs(); we are making sure the amount is always NEGATIVE.
+        Input.nextLine(); //cleaning buffer from Scanner after int or double input.
+
+
+        // creating method that writes the users input into the transaction.csv file.
+        saveTransaction(dateFormatted, description, provider, amount);
     }
     public static void ledger(){
 
