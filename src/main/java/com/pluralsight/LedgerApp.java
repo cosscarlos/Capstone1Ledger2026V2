@@ -1,8 +1,13 @@
 package com.pluralsight;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+
+
 
 public class LedgerApp {
     public static void main(String[] args) {
@@ -69,7 +74,7 @@ public class LedgerApp {
 
 
         // creating method that writes the users input into the transaction.csv file.
-        saveTransaction();
+        saveTransaction(dateFormatted, description, provider, amount);
 
     }
     public static void makePayment(){
@@ -164,8 +169,18 @@ public class LedgerApp {
     }
 
     //Other methods:
-    public static void saveTransaction(){
+    public static void saveTransaction(String date, String description, String provider, double amount){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Transactions.csv", true))){
+            String line = String.format("%s|%s|%s|%.2f", date, description, provider, amount);
+            writer.write(line);
+            writer.newLine();
+            writer.close();
 
+            System.out.println();
+            System.out.println("Deposit saved successful!");
+        }catch(IOException e){
+            System.out.println("Error, transaction could not be saved.");
+        }
     }
 
 
