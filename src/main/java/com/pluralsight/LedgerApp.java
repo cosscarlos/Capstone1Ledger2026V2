@@ -47,6 +47,36 @@ public class LedgerApp {
     }
     public static void ledger(){
 
+        Scanner usersInputLedger = new Scanner(System.in);
+        System.out.println("Ledger selected!");
+
+        // Ledger menu
+        System.out.println("A) All");
+        System.out.println("D) Deposit");
+        System.out.println("P) Payments");
+        System.out.println("R) Reports");
+        System.out.println("H) Home");
+        String inputLedgerScreen = usersInputLedger.nextLine().toUpperCase();
+
+        // Switch case that will deliver the user's input from the ledger menu to the methods.
+
+        switch (inputLedgerScreen){
+            case "A":
+                displayAllEntries();
+                break;
+            case "D":
+                displayOnlyDeposits();
+                break;
+            case "P":
+                displayOnlyPayments();
+                break;
+            case "R":
+                reports();
+                break;
+            case "H":
+
+        }
+
     }
     public static void appRunning(){
 
