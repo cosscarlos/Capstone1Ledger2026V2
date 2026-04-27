@@ -78,9 +78,6 @@ public class LedgerApp {
         }
 
     }
-    public static void appRunning(){
-        System.out.println("App running selected!");
-    }
     public static void exit(){
         System.out.println("Goodbye!");
     }
