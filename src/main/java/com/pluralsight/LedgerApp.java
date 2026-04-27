@@ -40,10 +40,10 @@ public class LedgerApp {
 
     // main menu methods
     public static void addDeposit(){
-
+        System.out.println("Add deposit selected!");
     }
     public static void makePayment(){
-
+        System.out.println("Make payment selected!");
     }
     public static void ledger(){
 
@@ -79,7 +79,7 @@ public class LedgerApp {
 
     }
     public static void appRunning(){
-
+        System.out.println("App running selected!");
     }
     public static void exit(){
         System.out.println("Goodbye!");
