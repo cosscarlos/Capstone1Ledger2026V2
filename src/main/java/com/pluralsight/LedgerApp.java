@@ -18,6 +18,22 @@ public class LedgerApp {
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
             String inputHomeScreen = usersInput.nextLine().toUpperCase();
+
+            // Switch case that will deliver the user's input from the main menu to the methods.
+            switch (inputHomeScreen){
+                case "D":
+                    addDeposit();
+                    break;
+                case "P":
+                    makePayment();
+                    break;
+                case "L":
+                    ledger();
+                    break;
+                case "X":
+                    exit();
+                    appRunning = false;
+                    break;
         }
 
     }
