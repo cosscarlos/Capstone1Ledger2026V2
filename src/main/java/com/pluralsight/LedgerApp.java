@@ -1,10 +1,9 @@
 package com.pluralsight;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -47,11 +46,10 @@ public class LedgerApp {
 
     // main menu methods
     public static void addDeposit(){
-        System.out.println("Add deposit selected!");
 
         //Creating the date and time in real time and formatted.
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd|HH:mm:ss");
         String dateFormatted = now.format(formatter);
 
         // Creating Scanner
@@ -69,7 +67,7 @@ public class LedgerApp {
         String provider = Input.nextLine();
         System.out.println();
         System.out.println("Deposit amount: ");
-        double amount = Math.abs(Input.nextDouble());  // With Math.abs(); we are making sure the amount is always positive.
+        double amount = Math.abs(Input.nextDouble());  // With Math.abs(); we are making sure the amount is always POSITIVE.
         Input.nextLine(); //cleaning buffer from Scanner after int or double input.
 
 
@@ -78,18 +76,15 @@ public class LedgerApp {
 
     }
     public static void makePayment(){
-        System.out.println("Make payment selected!");
-
-
 
         //Creating the date and time in real time and formatted.
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd|HH:mm:ss");
         String dateFormatted = now.format(formatter);
 
         // Creating Scanner
         Scanner Input = new Scanner(System.in);
-        System.out.println("Add payment selected!");
+        System.out.println("Make payment selected!");
         System.out.println();
 
         // asking for users input for deposit.
@@ -102,7 +97,7 @@ public class LedgerApp {
         String provider = Input.nextLine();
         System.out.println();
         System.out.println("Payment amount: ");
-        double amount = -Math.abs(Input.nextDouble());  // With Math.abs(); we are making sure the amount is always NEGATIVE.
+        double amount = -Math.abs(Input.nextDouble());  // With -Math.abs(); we are making sure the amount is always NEGATIVE.
         Input.nextLine(); //cleaning buffer from Scanner after int or double input.
 
 
@@ -150,6 +145,7 @@ public class LedgerApp {
     // ledger menu methods
     public static void displayAllEntries(){
         System.out.println("Display All Entries selected!");
+
     }
     public static void displayOnlyDeposits(){
         System.out.println("Display Only Deposits selected!");
@@ -210,6 +206,26 @@ public class LedgerApp {
         }catch(IOException e){
             System.out.println("Error, transaction could not be saved.");
         }
+    }
+    public static ArrayList<Transaction> loadTransactions(){
+        ArrayList<Transaction> transactions = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("Transactions.csv"))){
+            String line;
+            while((line = reader.readLine()) != null){
+                String[] part = line.split("\\|");
+
+                //Calling the constructor Transaction.java to create a new transaction.
+                Transaction transaction = new Transaction(part[0], part[1], part[2], part[3], Double.parseDouble(part[4]));
+                transactions.add(transaction);
+            }
+
+        }catch (IOException e){
+            System.out.println("Error reading the file");
+        }
+
+
+        return transactions;
     }
 
 
