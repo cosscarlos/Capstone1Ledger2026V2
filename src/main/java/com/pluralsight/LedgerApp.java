@@ -219,22 +219,44 @@ public class LedgerApp {
         switch (inputReportsScreen){
             case 1:
                 System.out.println("Month to date selected");
+                monthToDateFilter();
                 break;
             case 2:
                 System.out.println("Previous month selected");
+                previousMonthFilter();
                 break;
             case 3:
                 System.out.println("Year to date selected");
+                yearToDateFilter();
                 break;
             case 4:
                 System.out.println("Previous year selected!");
+                previousYearFilter();
                 break;
             case 5:
                 System.out.println("Search by vendor selected!");
+                searchByVendorFilter();
             case 0:
                 // we need to find how to go back to the ledger menu and not to the main.
         }
 
+    }
+
+    //reports menu methods
+    public static void monthToDateFilter(){
+        System.out.println("Month to date filter selected!");
+    }
+    public static void previousMonthFilter(){
+        System.out.println("Previous Month Filter selected!");
+    }
+    public static void yearToDateFilter(){
+        System.out.println("Year to date filter selected!");
+    }
+    public static void previousYearFilter(){
+        System.out.println("Previous year filter selected!");
+    }
+    public static void searchByVendorFilter(){
+        System.out.println("Search by vendor filter selected!");
     }
 
     //Other methods:
