@@ -268,6 +268,23 @@ public class LedgerApp {
     }
     public static void yearToDateFilter(){
         System.out.println("Year to date filter selected!");
+
+        //getting today's month and year.
+        LocalDateTime now = LocalDateTime.now();
+        String currentYear = now.format(DateTimeFormatter.ofPattern("yyyy"));
+
+
+
+        ArrayList<Transaction> list = loadTransactions();
+
+        for (int i = list.size() -1; i >= 0; i--){
+            Transaction transactionList = list.get(i); //extracting the current transaction list.
+
+            // the filter to display only month to date transactions.
+            if(transactionList.getDate().startsWith(currentYear)) {
+                System.out.println(list.get(i).toCSVLine());
+            }
+        }
     }
     public static void previousYearFilter(){
         System.out.println("Previous year filter selected!");
