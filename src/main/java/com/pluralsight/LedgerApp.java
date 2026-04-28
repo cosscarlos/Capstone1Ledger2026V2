@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -265,6 +266,28 @@ public class LedgerApp {
     }
     public static void previousMonthFilter(){
         System.out.println("Previous Month Filter selected!");
+        //getting today's month and year.
+        LocalDate now = LocalDate.now();
+        LocalDate previousMonthDate = now.minusMonths(1);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        String filter = previousMonthDate.format(formatter);
+        ArrayList<Transaction> list = loadTransactions();
+        boolean found = false;
+
+        for (int i = list.size() - 1; i >= 0; i--) {
+            Transaction transaction = list.get(i);
+
+            if (transaction.getDate().startsWith((filter))) {
+                System.out.println(transaction.toCSVLine());
+                found = true;
+            }
+
+        }
+        if(!found){
+            System.out.println("No transactions found for " + filter);
+        }
+
     }
     public static void yearToDateFilter(){
         System.out.println("Year to date filter selected!");
@@ -288,11 +311,33 @@ public class LedgerApp {
     }
     public static void previousYearFilter(){
         System.out.println("Previous year filter selected!");
+
+        //getting today's month and year.
+        LocalDate now = LocalDate.now();
+        LocalDate previousYear = now.minusYears(1);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
+        String filter = previousYear.format(formatter);
+        ArrayList<Transaction> list = loadTransactions();
+        boolean found = false;
+
+        for (int i = list.size() - 1; i >= 0; i--) {
+            Transaction transaction = list.get(i);
+
+            if (transaction.getDate().startsWith((filter))) {
+                System.out.println(transaction.toCSVLine());
+                found = true;
+            }
+
+        }
+        if(!found){
+            System.out.println("No transactions found for " + filter);
+        }
     }
     public static void searchByVendorFilter(){
         System.out.println("Search by vendor filter selected!");
-    }
 
+    }
     //Other methods:
     public static void saveTransaction(String date, String description, String provider, double amount){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Transactions.csv", true))){
