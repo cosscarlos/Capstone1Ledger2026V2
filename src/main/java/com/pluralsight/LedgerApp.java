@@ -146,6 +146,13 @@ public class LedgerApp {
     public static void displayAllEntries(){
         System.out.println("Display All Entries selected!");
 
+
+
+        ArrayList<Transaction> list = loadTransactions();
+        for (int i = list.size() -1; i >= 0; i--){
+            System.out.println(list.get(i).toCSVLine());
+        }
+
     }
     public static void displayOnlyDeposits(){
         System.out.println("Display Only Deposits selected!");
@@ -223,8 +230,6 @@ public class LedgerApp {
         }catch (IOException e){
             System.out.println("Error reading the file");
         }
-
-
         return transactions;
     }
 
