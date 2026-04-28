@@ -199,7 +199,7 @@ public class LedgerApp {
     }
     public static void reports(){
 
-        System.out.println("Reports selected!");
+
 
         Scanner usersInputReports = new Scanner(System.in);
         System.out.println("Reports selected!");
