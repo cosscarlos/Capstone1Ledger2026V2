@@ -177,7 +177,25 @@ public class LedgerApp {
 
     }
     public static void displayOnlyPayments(){
+
+
         System.out.println("Display only payments selected!");
+
+
+
+        ArrayList<Transaction> transaction = loadTransactions();
+
+
+        for (int i = transaction.size() -1; i >= 0; i--){
+
+            Transaction transactionList = transaction.get(i); //extracting the current transaction list.
+
+            //Using if statement to filter all the positive transactions.
+            if(transactionList.getAmount() < 0){
+                System.out.println(transactionList.toCSVLine());
+            }
+
+        }
     }
     public static void reports(){
 
