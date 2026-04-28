@@ -232,6 +232,7 @@ public class LedgerApp {
             case 5:
                 System.out.println("Search by vendor selected!");
             case 0:
+                // we need to find how to go back to the ledger menu and not to the main.
         }
 
     }
