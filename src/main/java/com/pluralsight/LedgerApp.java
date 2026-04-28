@@ -337,7 +337,28 @@ public class LedgerApp {
     public static void searchByVendorFilter(){
         System.out.println("Search by vendor filter selected!");
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter de vendor name to search: ");
+        String vendor = scanner.nextLine().trim();
+
+        ArrayList<Transaction> list = loadTransactions();
+        boolean found = false;
+
+        for (int i = list.size() - 1; i >= 0; i--){
+            Transaction transaction = list.get(i);
+
+            if (transaction.getVendor().equalsIgnoreCase(vendor)){
+                System.out.println(transaction.toCSVLine());
+                found = true;
+            }
+        }
+
+        if (!found){
+            System.out.println("No transactions found for vendor " + vendor);
+        }
+
     }
+
     //Other methods:
     public static void saveTransaction(String date, String description, String provider, double amount){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Transactions.csv", true))){
