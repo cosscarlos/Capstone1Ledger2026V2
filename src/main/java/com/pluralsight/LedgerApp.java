@@ -218,26 +218,21 @@ public class LedgerApp {
 
         switch (inputReportsScreen){
             case 1:
-                System.out.println("Month to date selected");
                 monthToDateFilter();
                 break;
             case 2:
-                System.out.println("Previous month selected");
                 previousMonthFilter();
                 break;
             case 3:
-                System.out.println("Year to date selected");
                 yearToDateFilter();
                 break;
             case 4:
-                System.out.println("Previous year selected!");
                 previousYearFilter();
                 break;
             case 5:
-                System.out.println("Search by vendor selected!");
                 searchByVendorFilter();
             case 0:
-                // we need to find how to go back to the ledger menu and not to the main.
+                // we need to find out how to go back to the ledger menu and not to the main.
         }
 
     }
@@ -245,6 +240,28 @@ public class LedgerApp {
     //reports menu methods
     public static void monthToDateFilter(){
         System.out.println("Month to date filter selected!");
+
+        //getting today's month and year.
+        LocalDateTime now = LocalDateTime.now();
+        String currentMonthYear = now.format(DateTimeFormatter.ofPattern("yyyy-MM"));
+
+
+
+        ArrayList<Transaction> list = loadTransactions();
+
+        for (int i = list.size() -1; i >= 0; i--){
+            Transaction transactionList = list.get(i); //extracting the current transaction list.
+
+            // the filter to display only month to date transactions.
+            if(transactionList.getDate().startsWith(currentMonthYear)) {
+                System.out.println(list.get(i).toCSVLine());
+            }
+        }
+
+
+
+
+
     }
     public static void previousMonthFilter(){
         System.out.println("Previous Month Filter selected!");
