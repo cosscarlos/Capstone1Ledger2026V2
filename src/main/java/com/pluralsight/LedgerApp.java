@@ -58,7 +58,7 @@ public class LedgerApp {
         System.out.println("Add deposit selected!");
         System.out.println();
 
-        // asking for users input for deposit.
+        // asking for deposit users input.
         System.out.println("Add the following deposit information:");
         System.out.println();
         System.out.println("Deposit description: ");
@@ -111,11 +111,11 @@ public class LedgerApp {
         System.out.println("Ledger selected!");
 
         // Ledger menu
-        System.out.println("A) All");
-        System.out.println("D) Deposit");
-        System.out.println("P) Payments");
+        System.out.println("A) All transactions");
+        System.out.println("D) Deposit Only");
+        System.out.println("P) Payments Only");
         System.out.println("R) Reports");
-        System.out.println("H) Home");
+        System.out.println("H) Home menu");
         String inputLedgerScreen = usersInputLedger.nextLine().toUpperCase();
 
         // Switch case that will deliver the user's input from the ledger menu to the methods.
