@@ -232,8 +232,10 @@ public class LedgerApp {
                 break;
             case 5:
                 searchByVendorFilter();
+                break;
             case 0:
-                // we need to find out how to go back to the ledger menu and not to the main.
+                ledger();
+                break;
         }
 
     }
