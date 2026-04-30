@@ -38,7 +38,7 @@ public class LedgerApp {
                     ledger();
                     break;
                 case "X":
-                    exit();
+                    System.out.println("Goodbye!");
                     appRunning = false;
                     break;
             }
@@ -138,9 +138,6 @@ public class LedgerApp {
         }
 
     }
-    public static void exit(){
-        System.out.println("Goodbye!");
-    }
 
 
     // ledger menu methods
@@ -211,6 +208,7 @@ public class LedgerApp {
         System.out.println("3) Year To Date");
         System.out.println("4) Previous Year");
         System.out.println("5) Search by Vendor");
+        System.out.println("6) Custom Search");
         System.out.println("0) Back <- ");
         int inputReportsScreen = usersInputReports.nextInt();
         usersInputReports.nextLine(); // this code is to clean the enter floating in the memory.
@@ -233,6 +231,8 @@ public class LedgerApp {
             case 5:
                 searchByVendorFilter();
                 break;
+            case 6:
+                customSearchFilter();
             case 0:
                 ledger();
                 break;
@@ -358,6 +358,23 @@ public class LedgerApp {
         if (!found){
             System.out.println("No transactions found for vendor " + vendor);
         }
+
+    }
+    public static void customSearchFilter(){
+        System.out.println("Custom Search Selected!");
+
+        Scanner customInput = new Scanner(System.in);
+
+        System.out.println("What is the start date? (you can leave it empty if you don't know)");
+        String startDate = customInput.nextLine();
+        System.out.println("What is the end date? (you can leave it empty if you don't know)");
+        String endDate = customInput.nextLine();
+        System.out.println("What is the description? (you can leave it empty if you don't know)");
+        String usersDescription = customInput.nextLine();
+        System.out.println("What is the vendor? (you can leave it empty if you don't know)");
+        String usersVendor = customInput.nextLine();
+        System.out.println("What is the amount? (you can leave it empty if you don't know)");
+        String usersAmount = customInput.nextLine();
 
     }
 
