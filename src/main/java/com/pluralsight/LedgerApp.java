@@ -363,6 +363,10 @@ public class LedgerApp {
     public static void customSearchFilter(){
         System.out.println("Custom Search Selected!");
 
+        //getting today's month and year.
+        LocalDateTime now = LocalDateTime.now();
+        String currentMonthYear = now.format(DateTimeFormatter.ofPattern("yyyy-MM"));
+
         Scanner customInput = new Scanner(System.in);
 
         System.out.println("What is the start date? (you can leave it empty if you don't know)");
@@ -377,6 +381,15 @@ public class LedgerApp {
         String usersAmount = customInput.nextLine();
 
         String [] usersInput = {startDate, endDate, usersDescription, usersVendor, usersAmount};
+        ArrayList<Transaction> list = loadTransactions();
+
+       for (int i = 0 ; i <= usersInput.length; i++){
+           if (usersInput[i] != null){
+
+
+           }
+       }
+
 
 
 
