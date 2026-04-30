@@ -376,6 +376,10 @@ public class LedgerApp {
         System.out.println("What is the amount? (you can leave it empty if you don't know)");
         String usersAmount = customInput.nextLine();
 
+        String [] usersInput = {startDate, endDate, usersDescription, usersVendor, usersAmount};
+
+
+
     }
 
     //Other methods:
