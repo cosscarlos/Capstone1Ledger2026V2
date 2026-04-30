@@ -367,6 +367,7 @@ public class LedgerApp {
         LocalDateTime now = LocalDateTime.now();
         String currentMonthYear = now.format(DateTimeFormatter.ofPattern("yyyy-MM"));
 
+
         Scanner customInput = new Scanner(System.in);
 
         System.out.println("What is the start date? (you can leave it empty if you don't know)");
@@ -383,12 +384,15 @@ public class LedgerApp {
         String [] usersInput = {startDate, endDate, usersDescription, usersVendor, usersAmount};
         ArrayList<Transaction> list = loadTransactions();
 
-       for (int i = 0 ; i <= usersInput.length; i++){
-           if (usersInput[i] != null){
+      for (int i = list.size(); i >= 0 ; i--){ // running through the Transaction.CSV file.
+          boolean passFilter = true;
+          if (startDate != null){
+
+          }
 
 
-           }
-       }
+      }
+      //transactionList.getDate().startsWith(currentYear)
 
 
 
