@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import javax.swing.text.html.HTMLDocument;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -363,9 +364,8 @@ public class LedgerApp {
     public static void customSearchFilter(){
         System.out.println("Custom Search Selected!");
 
-        //getting today's month and year.
-        LocalDateTime now = LocalDateTime.now();
-        String currentMonthYear = now.format(DateTimeFormatter.ofPattern("yyyy-MM"));
+
+
 
 
         Scanner customInput = new Scanner(System.in);
@@ -381,14 +381,48 @@ public class LedgerApp {
         System.out.println("What is the amount? (you can leave it empty if you don't know)");
         String usersAmount = customInput.nextLine();
 
-        String [] usersInput = {startDate, endDate, usersDescription, usersVendor, usersAmount};
+
         ArrayList<Transaction> list = loadTransactions();
 
-      for (int i = list.size(); i >= 0 ; i--){ // running through the Transaction.CSV file.
+      for (int i = 0; i < list.size() ; i++){ // running through the Transaction.CSV file.
+          Transaction transactionList = list.get(i);
           boolean passFilter = true;
-          if (startDate != null){
+
+          if (!startDate.isEmpty() && !transactionList.getDate().equalsIgnoreCase(startDate)){
+
+              LocalDate transactionDate = LocalDate.parse(transactionList.getDate());
+              LocalDate localStartDate = LocalDate.parse(startDate);
+
+              if(transactionDate.isBefore(localStartDate)){
+                  passFilter = false;
+              }
+
 
           }
+          if (!endDate.isEmpty() && !transactionList.getDate().equalsIgnoreCase(endDate)){
+              LocalDate transactionDate = LocalDate.parse(transactionList.getDate());
+              LocalDate localEndDate = LocalDate.parse(startDate);
+
+              if (transactionDate.isAfter(localEndDate)){
+                  passFilter = false;
+              }
+          }
+          if (!usersDescription.isEmpty() && !transactionList.getDescription().toLowerCase().contains(usersDescription.toLowerCase())){
+              passFilter = false;
+          }
+          if (!usersVendor.isEmpty() && !transactionList.getVendor().toLowerCase().contains(usersVendor.toLowerCase())){
+              passFilter = false;
+          }
+          if (!usersAmount.isEmpty()){
+              double realAmount = Double.parseDouble(usersAmount);
+              if(transactionList.getAmount() != realAmount){
+                  passFilter = false;
+              }
+          }
+          if (passFilter){
+              System.out.println(transactionList.toCSVLine());
+          }
+
 
 
       }
