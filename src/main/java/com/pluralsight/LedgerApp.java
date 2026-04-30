@@ -388,7 +388,7 @@ public class LedgerApp {
           Transaction transactionList = list.get(i);
           boolean passFilter = true;
 
-          if (!startDate.isEmpty() && !transactionList.getDate().equalsIgnoreCase(startDate)){
+          if (!startDate.isEmpty()){
 
               LocalDate transactionDate = LocalDate.parse(transactionList.getDate());
               LocalDate localStartDate = LocalDate.parse(startDate);
@@ -399,9 +399,9 @@ public class LedgerApp {
 
 
           }
-          if (!endDate.isEmpty() && !transactionList.getDate().equalsIgnoreCase(endDate)){
+          if (!endDate.isEmpty()){
               LocalDate transactionDate = LocalDate.parse(transactionList.getDate());
-              LocalDate localEndDate = LocalDate.parse(startDate);
+              LocalDate localEndDate = LocalDate.parse(endDate);
 
               if (transactionDate.isAfter(localEndDate)){
                   passFilter = false;
@@ -426,7 +426,7 @@ public class LedgerApp {
 
 
       }
-      //transactionList.getDate().startsWith(currentYear)
+
 
 
 
