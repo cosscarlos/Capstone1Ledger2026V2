@@ -1,23 +1,23 @@
-# BNY Accounting Ledger Application
+# Accounting Ledger Application
 
 ## Description
-The BNY Accounting Ledger is a command-line interface (CLI) application built in Java. It serves as a financial tracking tool that allows users to seamlessly manage their daily transactions. Users can record deposits, track payments, and view their transaction history through a detailed ledger. Additionally, the application features a robust reporting system that filters transactions by date, vendor, and custom search criteria. All data is persistently stored and retrieved from a `Transactions.csv` file.
+The Accounting Ledger is a command-line interface (CLI) application built in Java. It serves as a personal financial tracking tool that allows users to manage their daily transactions efficiently. Users can record deposits, track payments, and view their full transaction history. The application features a robust reporting system to filter transactions by date, vendor, and a versatile custom search criteria. All data is persistently stored in a `Transactions.csv` file.
 
 ## Features
-* **Add Deposits:** Record income with positive amounts.
-* **Make Payments:** Log expenses, which are automatically stored as negative values.
-* **Ledger Navigation:** View all transactions, or filter by deposits or payments only.
-* **Pre-built Reports:** Instantly view transactions from the current month/year or the previous month/year.
-* **Search by Vendor:** Quickly find transactions associated with a specific provider.
-* **Custom Search:** A powerful filter to search transactions by start date, end date, description, vendor, and exact amount.
+* **Add Deposits:** Quickly record income with positive amounts.
+* **Make Payments:** Log expenses, which are automatically stored as negative values to reflect debits.
+* **Ledger Navigation:** View all entries at once, or filter specifically by deposits or payments.
+* **Pre-built Reports:** View transactions from the current month, previous month, current year, or previous year with one click.
+* **Search by Vendor:** Instantly find all transactions associated with a specific provider.
+* **Custom Search:** A powerful multi-criteria filter to search by start/end dates, description keywords, vendor names, or specific amounts.
 
 ## Prerequisites
-* **Java Development Kit (JDK):** Version 17 or higher is recommended.
-* An Integrated Development Environment (IDE) like IntelliJ IDEA, Eclipse, or Visual Studio Code.
+* **Java Development Kit (JDK):** Version 17 or higher.
+* An IDE such as IntelliJ IDEA, Eclipse, or VS Code.
 
 ## How to Run the Project
 
-### Option 1: Running via an IDE (Recommended)
-1. Clone this repository to your local machine using:
+### Option 1: Using an IDE (Recommended)
+1. Clone this repository to your local machine:
    ```bash
    git clone <your-repository-url>
