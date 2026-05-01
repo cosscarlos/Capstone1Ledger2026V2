@@ -418,16 +418,35 @@ public class LedgerApp {
 
         Scanner customInput = new Scanner(System.in);
 
-        System.out.println("What is the start date? (you can leave it empty if you don't know)");
+// Encabezado del Custom Search
+        System.out.println("""
+        
+        --------------------------------------------------
+                   [*] CUSTOM SEARCH FILTER [*]
+        --------------------------------------------------
+        Enter your search criteria. 
+        (Press ENTER to leave a field blank and skip it)
+        """);
+
+// Formulario de búsqueda alineado
+        System.out.print("  > Start Date (yyyy-MM-dd) : ");
         String startDate = customInput.nextLine();
-        System.out.println("What is the end date? (you can leave it empty if you don't know)");
+
+        System.out.print("  > End Date   (yyyy-MM-dd) : ");
         String endDate = customInput.nextLine();
-        System.out.println("What is the description? (you can leave it empty if you don't know)");
+
+        System.out.print("  > Description             : ");
         String usersDescription = customInput.nextLine();
-        System.out.println("What is the vendor? (you can leave it empty if you don't know)");
+
+        System.out.print("  > Vendor                  : ");
         String usersVendor = customInput.nextLine();
-        System.out.println("What is the amount? (you can leave it empty if you don't know)");
+
+        System.out.print("  > Amount                  : $ ");
         String usersAmount = customInput.nextLine();
+
+        System.out.println("--------------------------------------------------");
+        System.out.println("Searching...");
+        System.out.println();
 
 
         ArrayList<Transaction> list = loadTransactions();
