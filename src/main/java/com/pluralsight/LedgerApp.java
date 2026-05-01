@@ -446,6 +446,12 @@ public class LedgerApp {
 
         System.out.println("--------------------------------------------------");
         System.out.println("Searching...");
+        try{
+            Thread.sleep(2000);
+        }catch(InterruptedException e){
+            Thread.currentThread().interrupt();
+        }
+
         System.out.println();
 
 
