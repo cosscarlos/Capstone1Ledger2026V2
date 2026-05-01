@@ -130,7 +130,7 @@ public class LedgerApp {
     public static void ledger(){
 
         Scanner usersInputLedger = new Scanner(System.in);
-        System.out.println("Ledger selected!");
+
 
         // Ledger menu
         System.out.println("""
