@@ -418,7 +418,7 @@ public class LedgerApp {
 
         Scanner customInput = new Scanner(System.in);
 
-// Encabezado del Custom Search
+
         System.out.println("""
         
         --------------------------------------------------
@@ -428,7 +428,7 @@ public class LedgerApp {
         (Press ENTER to leave a field blank and skip it)
         """);
 
-// Formulario de búsqueda alineado
+
         System.out.print("  > Start Date (yyyy-MM-dd) : ");
         String startDate = customInput.nextLine();
 
