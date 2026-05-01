@@ -240,13 +240,29 @@ public class LedgerApp {
         System.out.println("Reports selected!");
 
         // Reports menu
-        System.out.println("1) Month To Date");
-        System.out.println("2) Previous Month");
-        System.out.println("3) Year To Date");
-        System.out.println("4) Previous Year");
-        System.out.println("5) Search by Vendor");
-        System.out.println("6) Custom Search");
-        System.out.println("0) Back <- ");
+        System.out.println("""
+        
+        ==================================================
+        |                                                |
+        |             [R] REPORTS & FILTERS              |
+        |             Financial Analytics                |
+        |                                                |
+        ==================================================
+        
+        Select a report to generate:
+        
+          [ 1 ] Month To Date
+          [ 2 ] Previous Month
+          [ 3 ] Year To Date
+          [ 4 ] Previous Year
+          [ 5 ] Search by Vendor
+          [ 6 ] Custom Search Filter
+          
+          [ 0 ] Go Back <-
+        
+        ==================================================
+        """);
+        System.out.print("Enter your command: ");
         int inputReportsScreen = usersInputReports.nextInt();
         usersInputReports.nextLine(); // this code is to clean the enter floating in the memory.
 
