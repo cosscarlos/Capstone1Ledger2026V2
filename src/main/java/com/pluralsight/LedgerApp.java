@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-import javax.swing.text.html.HTMLDocument;
+
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,17 +14,31 @@ public class LedgerApp {
     public static void main(String[] args) {
         // creating variables and scanner.
 
+
         Scanner usersInput = new Scanner(System.in);
         boolean appRunning = true;
 
         while (appRunning) {
 
             // This is the home screen:
-            System.out.println();
-            System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment (Debit)");
-            System.out.println("L) Ledger");
-            System.out.println("X) Exit");
+            System.out.println("""
+        ==================================================
+        |                                                |
+        |               Carlos bank 👍                   |
+        |        Accounting & Ledger System              |
+        |                                                |
+        ==================================================
+        
+        Please select an operation to continue:
+        
+          [ D ] Add Deposit  (Daily Sales/Income)
+          [ P ] Make Payment (Vendor/Supplies)
+          [ L ] Open Ledger  (Transaction History)
+          [ X ] Exit System
+        
+        ==================================================
+        """);
+            System.out.print("Enter your command: ");
             String inputHomeScreen = usersInput.nextLine().toUpperCase();
 
             // Switch case that will deliver the user's input from the main menu to the methods.
@@ -364,10 +378,6 @@ public class LedgerApp {
     public static void customSearchFilter(){
         System.out.println("Custom Search Selected!");
 
-
-
-
-
         Scanner customInput = new Scanner(System.in);
 
         System.out.println("What is the start date? (you can leave it empty if you don't know)");
@@ -422,15 +432,7 @@ public class LedgerApp {
           if (passFilter){
               System.out.println(transactionList.toCSVLine());
           }
-
-
-
       }
-
-
-
-
-
     }
 
     //Other methods:
