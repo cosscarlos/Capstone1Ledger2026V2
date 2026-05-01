@@ -74,15 +74,22 @@ public class LedgerApp {
         System.out.println();
 
         // asking for deposit users input.
-        System.out.println("Add the following deposit information:");
-        System.out.println();
-        System.out.println("Deposit description: ");
+        System.out.println("""
+        
+        --------------------------------------------------
+                  [+] NEW DEPOSIT ENTRY [+]
+        --------------------------------------------------
+        Please enter the details of the incoming funds.
+        """);
+
+
+        System.out.print("  > Deposit description : ");
         String description = Input.nextLine();
-        System.out.println();
-        System.out.println("Provider: ");
+
+        System.out.print("  > Vendor / Provider   : ");
         String provider = Input.nextLine();
-        System.out.println();
-        System.out.println("Deposit amount: ");
+
+        System.out.print("  > Deposit amount      : $ ");
         double amount = Math.abs(Input.nextDouble());  // With Math.abs(); we are making sure the amount is always POSITIVE.
         Input.nextLine(); //cleaning buffer from Scanner after int or double input.
 
@@ -126,11 +133,26 @@ public class LedgerApp {
         System.out.println("Ledger selected!");
 
         // Ledger menu
-        System.out.println("A) All transactions");
-        System.out.println("D) Deposit Only");
-        System.out.println("P) Payments Only");
-        System.out.println("R) Reports");
-        System.out.println("H) Home menu");
+        System.out.println("""
+        
+        ==================================================
+        |                                                |
+        |             [L] THE LEDGER VAULT               |
+        |             Transaction History                |
+        |                                                |
+        ==================================================
+        
+        Filter your view by selecting an option below:
+        
+          [ A ] View All Transactions
+          [ D ] View Deposits Only (Income)
+          [ P ] View Payments Only (Expenses)
+          [ R ] Advanced Reports & Custom Search
+          [ H ] Return to Home Menu
+        
+        ==================================================
+        """);
+        System.out.print("Enter your command: ");
         String inputLedgerScreen = usersInputLedger.nextLine().toUpperCase();
 
         // Switch case that will deliver the user's input from the ledger menu to the methods.
