@@ -451,7 +451,7 @@ public class LedgerApp {
 
         ArrayList<Transaction> list = loadTransactions();
 
-      for (int i = 0; i < list.size() ; i++){ // running through the Transaction.CSV file.
+      for (int i = list.size() - 1; i >= 0 ; i--){ // running through the Transaction.CSV file.
           Transaction transactionList = list.get(i);
           boolean passFilter = true;
 
